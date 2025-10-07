@@ -162,7 +162,14 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+          Continual learning enables pre-trained generative visionlanguage models (VLMs) to incorporate knowledge from new tasks without retraining data from previous ones. 
+          Recent methods update a visual projector to translate visual information for new tasks, connecting pre-trained vision encoders with large language models. 
+          However, such adjustments may cause the models to prioritize visual inputs over language instructions, particularly learning tasks with repetitive types of textual instructions. 
+          To address the neglect of language instructions, we propose a novel framework that grounds the translation of visual information on instructions for language models. 
+          We introduce a mixture of visual projectors, each serving as a specialized visual-tolanguage translation expert based on the given instruction context to adapt to new tasks. 
+          To avoid using experts for irrelevant instruction contexts, we propose an expert recommendation strategy that reuses experts for tasks similar to those previously learned. 
+          Additionally, we introduce expert pruning to alleviate interference from the use of experts that cumulatively activated in previous tasks. 
+          Extensive experiments on diverse vision-language tasks demonstrate that our method outperforms existing continual learning approaches by generating instruction-following responses
           </p>
         </div>
       </div>
