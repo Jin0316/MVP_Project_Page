@@ -150,16 +150,8 @@
         />
         <figcaption class="subtitle" style="width: 100%; margin: 0.75rem auto 0; text-align: left; line-height: 1.5;">
           <p>
-           How can we achieve context-aware visual-to-language translation without neglecting text instructions after learning subsequent tasks?
-          </p>
-          <p>
-           MVP: Mixture-of-Visual Projectors
-          </p>
-          <p>
-           (1) Multiple projectors act as experts, each dedicated to a given instruction context.
-          </p>
-          <p>
-           (2) Routing schemeadapts to instruction semantics and visual input, selecting experts aligned with linguistic intent
+          An overview of Mixture-of-Visual Projectors (MVP). MVP aligns visual representations with instruction semantics through instruction-grounded projector selection. 
+          Multiple projectors act as experts for distinct instruction contexts, while expert recommendation and pruning ensure efficient knowledge reuse and mitigate interference in continual learning.
           </p>
         </figcaption>
       </figure>
@@ -193,27 +185,53 @@
 <!-- End paper abstract -->
 
 
-  <!-- Image carousel -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel-1" class="carousel results-carousel">
-          <div class="item">
-            <img src="static/images/main results.png" alt="Instruction-aware projector selection across tasks"/>
-            <h2 class="subtitle has-text-centered">Results of the compared methods that employed Vicuna were measured using the Last, Avg, and Transfer metrics.</h2>
-          </div>
-          <div class="item">
-            <img src="static/images/addtional results.png" alt="Qualitative responses before and after sequential training"/>
-            <h2 class="subtitle has-text-centered">Results of using VLM with LLaMa-2 (left) and  Ablation study of MVP with different components (right).</h2>
-          </div>
-          <div class="item">
-            <img src="static/images/qualitative results.png" alt="Performance over time under different methods"/>
-            <h2 class="subtitle has-text-centered">Qualitative results of the continual learning methods illustrating changes of responses to randomly selected samples after learning of newly emerging tasks.</h2>
-          </div>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+
+      <!-- Motivation and Method -->
+      <div class="content has-text-justified mt-5">
+        <p>
+          <strong>Motivation of MVP:</strong><br>
+          In continual learning for vision–language models, visual projectors trained on sequential tasks often overfit to repetitive instruction patterns, causing them to ignore task-specific textual guidance. 
+          This imbalance between visual and linguistic representations hinders instruction-aware response generation and results in cumulative interference across tasks.
+        </p>
+
+        <p>
+          <strong>Method of MVP:</strong><br>
+          To address this, MVP introduces a mixture of instruction-grounded visual projectors that adaptively route visual inputs based on the semantics of each instruction. 
+          An expert recommendation strategy identifies and reuses prior experts associated with semantically related tasks, while expert pruning suppresses those contributing to interference for future tasks. 
+          Adaptive Knowledge Aggregation between the pre-trained and newly learned projectors maintains zero-shot generalization while ensuring instruction consistency.
+        </p>
+      </div>
+
+      <!-- Carousel Section -->
+      <div id="results-carousel-1" class="carousel results-carousel mt-5">
+        <div class="item">
+          <img src="static/images/main results.png" alt="Instruction-aware projector selection across tasks" />
+          <h2 class="subtitle has-text-centered">
+            Results of the compared methods that employed Vicuna were measured using the Last, Avg, and Transfer metrics.
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/addtional results.png" alt="Qualitative responses before and after sequential training" />
+          <h2 class="subtitle has-text-centered">
+            Results of using VLM with LLaMA-2 (left) and ablation study of MVP with different components (right).
+          </h2>
+        </div>
+
+        <div class="item">
+          <img src="static/images/qualitative results.png" alt="Performance over time under different methods" />
+          <h2 class="subtitle has-text-centered">
+            Qualitative results of continual learning methods illustrating changes in responses to randomly selected samples after learning newly emerging tasks.
+          </h2>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
   <!-- /Image carousel -->
 
 
